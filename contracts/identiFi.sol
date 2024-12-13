@@ -164,7 +164,43 @@ contract IdentiFi {
             user.linkedin
         );
         visibility = user.visibility;
-        
+
         return (basicInfo, professionalInfo, socialLinks, visibility);
+    }
+    
+    function getUserByAddress(address userAddress) public view returns (
+        BasicInfo memory basicInfo,
+        ProfessionalInfo memory professionalInfo,
+        SocialLinks memory socialLinks,
+        Visibility memory visibility
+    ) {
+        string memory username = addressToUsername[userAddress];
+        return getUserByUsername(username);
+    }
+
+    function getUsernameByAddress(address userAddress) public view returns (string memory) {
+        return addressToUsername[userAddress];
+    }
+
+    function setVisibility(
+        string memory username, 
+        bool education,
+        bool workHistory,
+        bool phoneNumber,
+        bool homeAddress,
+        bool dateOfBirth
+    ) public {
+        require(users[username].exists, "User does not exist.");
+        User storage user = users[username];
+        user.visibility.education = education;
+        user.visibility.workHistory = workHistory;
+        user.visibility.phoneNumber = phoneNumber;
+        user.visibility.homeAddress = homeAddress;
+        user.visibility.dateOfBirth = dateOfBirth;
+    }
+
+    function getVisibility(string memory username) public view returns (Visibility memory) {
+        require(users[username].exists, "User does not exist.");
+        return users[username].visibility;
     }
 }
