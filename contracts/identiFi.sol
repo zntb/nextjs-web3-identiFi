@@ -69,4 +69,102 @@ contract IdentiFi {
         require(!usernames[username], "Username already exists.");
         _;
     }
+
+    function createUser(
+        string memory username,
+        BasicInfo memory basicInfo,
+        ProfessionalInfo memory professionalInfo,
+        SocialLinks memory socialLinks,
+        Visibility memory visibility
+    ) public onlyUniqueUsername(username)
+    {
+        User storage user = users[username];
+        user.firstName = basicInfo.firstName;
+        user.lastName = basicInfo.lastName;
+        user.username = username;
+        user.email = basicInfo.email;
+        user.homeAddress = basicInfo.homeAddress;
+        user.dateOfBirth = basicInfo.dateOfBirth;
+        user.phoneNumber = basicInfo.phoneNumber;
+        user.education = professionalInfo.education;
+        user.workHistory = professionalInfo.workHistory;
+        user.jobTitle = professionalInfo.jobTitle;
+        user.x = socialLinks.x;
+        user.instagram = socialLinks.instagram;
+        user.tiktok = socialLinks.tiktok;
+        user.youtube = socialLinks.youtube;
+        user.linkedin = socialLinks.linkedin;
+        user.info = professionalInfo.info;
+        user.skills = professionalInfo.skills;
+        user.imageURL = professionalInfo.imageURL;
+        user.exists = true;
+        user.visibility = visibility;
+        usernames[username] = true;
+        addressToUsername[msg.sender] = username;
+    }
+
+    function editUser(
+        string memory username,
+        BasicInfo memory basicInfo,
+        ProfessionalInfo memory professionalInfo,
+        SocialLinks memory socialLinks,
+        Visibility memory visibility
+    ) public {
+        require(users[username].exists, "User does not exist.");
+        User storage user = users[username];
+        user.firstName = basicInfo.firstName;
+        user.lastName = basicInfo.lastName;
+        user.email = basicInfo.email;
+        user.homeAddress = basicInfo.homeAddress;
+        user.dateOfBirth = basicInfo.dateOfBirth;
+        user.phoneNumber = basicInfo.phoneNumber;
+        user.education = professionalInfo.education;
+        user.workHistory = professionalInfo.workHistory;
+        user.jobTitle = professionalInfo.jobTitle;
+        user.x = socialLinks.x;
+        user.instagram = socialLinks.instagram;
+        user.tiktok = socialLinks.tiktok;
+        user.youtube = socialLinks.youtube;
+        user.linkedin = socialLinks.linkedin;
+        user.info = professionalInfo.info;
+        user.skills = professionalInfo.skills;
+        user.imageURL = professionalInfo.imageURL;
+        user.visibility = visibility;
+    }
+
+    function getUserByUsername(string memory username) public view returns (
+        BasicInfo memory basicInfo,
+        ProfessionalInfo memory professionalInfo,
+        SocialLinks memory socialLinks,
+        Visibility memory visibility
+    ) {
+        require(users[username].exists, "User does not exist.");
+        User storage user = users[username];
+        basicInfo = BasicInfo(
+            user.firstName,
+            user.lastName,
+            user.email,
+            user.homeAddress,
+            user.dateOfBirth,
+            user.phoneNumber
+        );
+        professionalInfo = ProfessionalInfo(
+            user.education,
+            user.workHistory,
+            user.jobTitle,
+            user.info,
+            user.skills,
+            user.imageURL
+        );
+        socialLinks = SocialLinks(
+            user.x,
+            user.instagram,
+            user.tiktok,
+            user.youtube,
+            user.linkedin
+        );
+        visibility = user.visibility;
+        
+        return (basicInfo, professionalInfo, socialLinks, visibility);
+    }
 }
