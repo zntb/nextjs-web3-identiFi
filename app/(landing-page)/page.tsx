@@ -1,7 +1,11 @@
+import Navbar from '@/components/navbar/navbar';
+
 const LandingPage = () => {
   return (
     <div>
-      <h1>Landing Page</h1>
+      <Navbar />
+      {/* hero section */}
+      {/* section */}
     </div>
   );
 };
