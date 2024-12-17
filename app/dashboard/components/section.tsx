@@ -286,8 +286,11 @@ const Section = () => {
                 </div>
               </div>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-2 w-full '>
-                {formData?.skills?.map((skill: any) => (
-                  <div className='flex flex-row items-center bg-white w-max  space-x-2  px-3 py-2 rounded-lg'>
+                {formData?.skills?.map((skill: any, index: number) => (
+                  <div
+                    key={index}
+                    className='flex flex-row items-center bg-white w-max  space-x-2  px-3 py-2 rounded-lg'
+                  >
                     <p className='text-xs'>{skill}</p>
                   </div>
                 ))}
