@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 
 import { motion } from 'framer-motion';
 import Profile from './components/profile';
-// import EditProfile from './components/edit-profile';
+import EditProfile from './components/edit-profile';
 
 export default function ContactForm() {
   const tabs = [
@@ -11,10 +11,10 @@ export default function ContactForm() {
       name: 'Profile',
       component: <Profile />,
     },
-    // {
-    //   name: 'Edit Profile',
-    //   component: <EditProfile />,
-    // },
+    {
+      name: 'Edit Profile',
+      component: <EditProfile />,
+    },
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
