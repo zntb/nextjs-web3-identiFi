@@ -1,35 +1,17 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-
 import Image from 'next/image';
-import Link from 'next/link';
-
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
-
-import { useMediaQuery } from 'react-responsive';
-
-import { useState, useEffect } from 'react';
-import {
-  PiArrowRight,
-  PiBookOpenTextLight,
-  PiFileThin,
-  PiSparkleLight,
-  PiTargetLight,
-} from 'react-icons/pi';
-import { FormControl, FormItem, FormLabel } from '@/components/ui/form';
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { FormControl, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { IconZoomCheck } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 
 const Section = () => {
-  const ref = useRef(null);
   const router = useRouter();
 
   const [searchVal, setSearchVal] = useState('');
-  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
   const onSubmitSearch = () => {
     if (searchVal.length <= 0) {

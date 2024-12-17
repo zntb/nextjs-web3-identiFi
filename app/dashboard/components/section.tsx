@@ -30,7 +30,7 @@ import {
 } from '@tabler/icons-react';
 import {
   getUserByAddress,
-  getUserByUsername,
+  // getUserByUsername,
   getUsernameByAddress,
 } from '@/utils/queries';
 import Link from 'next/link';

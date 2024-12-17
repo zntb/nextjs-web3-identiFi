@@ -1,15 +1,10 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-// import { useRef } from 'react';
-
 import { useMediaQuery } from 'react-responsive';
-
 import { useState } from 'react';
 import { PiArrowRight } from 'react-icons/pi';
 import {

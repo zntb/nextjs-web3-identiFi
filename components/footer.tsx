@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import {
   PiFacebookLogoFill,
-  PiInstagramLogo,
   PiInstagramLogoFill,
   PiLinkedinLogoFill,
   PiTwitterLogoFill,

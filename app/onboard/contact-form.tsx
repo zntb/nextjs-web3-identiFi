@@ -189,8 +189,7 @@ export default function CreateProfile() {
       const options = {
         method: 'POST',
         headers: {
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmMWI5ODc3OC01NWU1LTQzNWUtOGQ4NC0yZmRjMmZhMzM0NDkiLCJlbWFpbCI6InplbmV0aWJpQHlhaG9vLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiIwOWMwMjVkOWQ1NDVlZWI1NzJjYyIsInNjb3BlZEtleVNlY3JldCI6ImRlM2M5NjJiMzE3ZDBkYmRlMmRjY2RiOWNlYjkyOTA4MmVjYTg2NDZhNDdiYmQwZGY1YjJmMGJlNTU2NjcyZTgiLCJleHAiOjE3NjU5ODAwOTl9.HKjzqHHOzMu_lFv7yM_nL3NhhDjfGcZpfB3iVHQ70EY',
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_PINATA_AUTH_TOKEN}`,
         },
         body: form,
       };

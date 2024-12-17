@@ -1,13 +1,10 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useWallets } from '@privy-io/react-auth';
 import { usePrivy } from '@privy-io/react-auth';
-
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-
 import { Accordion } from '@/components/ui/accordion';
-
 import { getUserByAddress } from '@/utils/queries';
 
 interface DropDownMenuProps {
