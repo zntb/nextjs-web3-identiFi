@@ -1,7 +1,6 @@
 'use client';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useMediaQuery } from 'react-responsive';
 import { useToast } from '@/components/ui/use-toast';
 import {
   PiArrowRight,
@@ -164,12 +163,6 @@ const UserProfile = (params: any) => {
     getUserInfo();
   }, []);
 
-  const ref = useRef(null);
-
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-
-  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
-
   return (
     <div className='md:items-center items-center flex flex-col w-full'>
       <div className='flex flex-col items-center'>
@@ -294,14 +287,14 @@ const UserProfile = (params: any) => {
               </div>
               <div className='grid grid-cols-1 md:grid-cols-5 gap-2 pt-1 w-full'>
                 {formData.x && (
-                  <Link href={formData.x}>
+                  <Link href={formData.x} target='_blank'>
                     <div className='flex flex-row items-center justify-center bg-black px-3 py-2 rounded-lg cursor-pointer'>
                       <IconBrandX width={24} height={24} color='white' />
                     </div>
                   </Link>
                 )}
                 {formData.instagram && (
-                  <Link href={formData.instagram}>
+                  <Link href={formData.instagram} target='_blank'>
                     <div className='flex flex-row items-center justify-center bg-[#5b51d8] px-3 py-2 rounded-lg cursor-pointer'>
                       <IconBrandInstagram
                         width={24}
@@ -312,21 +305,21 @@ const UserProfile = (params: any) => {
                   </Link>
                 )}
                 {formData.youtube && (
-                  <Link href={formData.youtube}>
+                  <Link href={formData.youtube} target='_blank'>
                     <div className='flex flex-row items-center justify-center bg-[#ff0000] px-3 py-2 rounded-lg cursor-pointer'>
                       <IconBrandYoutube width={24} height={24} color='white' />
                     </div>
                   </Link>
                 )}
                 {formData.tiktok && (
-                  <Link href={formData.tiktok}>
+                  <Link href={formData.tiktok} target='_blank'>
                     <div className='flex flex-row items-center justify-center bg-[#69c9d0] px-3 py-2 rounded-lg cursor-pointer'>
                       <IconBrandTiktok width={24} height={24} color='white' />
                     </div>
                   </Link>
                 )}
                 {formData.linkedin && (
-                  <Link href={formData.linkedin}>
+                  <Link href={formData.linkedin} target='_blank'>
                     <div className='flex flex-row items-center justify-center bg-[#2867b2] px-3 py-2 rounded-lg cursor-pointer'>
                       <IconBrandLinkedin width={24} height={24} color='white' />
                     </div>
